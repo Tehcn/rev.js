@@ -1,0 +1,19 @@
+{
+  "name": "revjs",
+  "version": "0.1.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "ts-node test/test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tehcn/Rev.js.git"
+  },
+  "author": "Noah Perry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tehcn/Rev.js/issues"
+  },
+  "homepage": "https://github.com/Tehcn/Rev.js#readme"
+}
