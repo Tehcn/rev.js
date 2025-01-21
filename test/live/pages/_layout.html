@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- this is a component (very useful for sharing heads between pages) -->
+		{{ %Head% }}
+	</head>
+	<body>
+		<header>
+			<section>
+				<h1><a href="/">test site</a></h1>
+				<small class="muted">subheadings are a thing</small>
+			</section>
+		</header>
+		<!-- this is a built-in component -->
+		<main>{{ %Outlet% }}</main>
+	</body>
+</html>
