@@ -1,5 +1,5 @@
 import { test } from "bun:test";
-import Rev from "../src";
+import Rev from "..";
 
 // this test is just a basic sanity check
 test("can start rev.js webserver", async () => {

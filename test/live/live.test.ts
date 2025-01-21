@@ -1,6 +1,6 @@
 // actually just a basic rev.js app
 
-import Rev from "../../src";
+import Rev from "../..";
 
 new Rev({
 	port: 8080,

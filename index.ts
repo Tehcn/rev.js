@@ -345,7 +345,7 @@ class Rev {
 				} catch (err) {
 					if (config.showDebug)
 						debug(
-							"You might want a favicon.ico (/public/favicon.ico_",
+							"You might want a favicon.ico (/public/favicon.ico)",
 						);
 					return "not found";
 				}
@@ -366,5 +366,6 @@ class Rev {
 }
 
 export default Rev;
+export type { RevConfig };
 
 //#endregion

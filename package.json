@@ -1,14 +1,14 @@
 {
 	"name": "@tehcn/rev.js",
-	"module": "src/index.ts",
-	"version": "0.1.0",
+	"module": "index.ts",
+	"version": "0.2.1",
 	"publishConfig": {
 		"access": "public"
 	},
 	"type": "module",
 	"scripts": {
-		"livetestiguess": "bun run test/live/live.test.ts",
-		"livetestdevjustcauseican": "bun run --watch test/live/live.test.ts"
+		"live": "bun run test/live/live.test.ts",
+		"livedev": "bun run --watch test/live/live.test.ts"
 	},
 	"devDependencies": {
 		"@types/bun": "latest"
