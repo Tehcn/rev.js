@@ -7,7 +7,6 @@ const append_to_file = async (path: string, data: string | Uint8Array) => {
 	await appendFile(path, data);
 };
 const format = (...args: any[]) => args.map((arg) => `${arg}`).join(" ");
-const color_str = (str: string, style: Style) => `${style.valueOf()}${str}`;
 const datestr = () =>
 	`${new Date()}`
 		.split(" ")
@@ -300,6 +299,7 @@ interface RevConfig {
 	port?: number;
 	showDebug?: boolean;
 	rootDir: string;
+	elysia?: (app: Elysia) => Elysia;
 }
 
 class Rev {
@@ -308,6 +308,7 @@ class Rev {
 			port: 3000,
 			showDebug: true,
 			rootDir: "./",
+			elysia: (app) => app,
 		},
 	) {
 		PAGES_DIR = config.rootDir + PAGES_DIR;
@@ -318,7 +319,7 @@ class Rev {
 			debug(
 				`PAGES_DIR = ${PAGES_DIR}\nCOMPONENTS_DIR = ${COMPONENTS_DIR}`,
 			);
-		new Elysia()
+		let app = new Elysia()
 			.get("*", async ({ request }) => {
 				try {
 					// custom ssr anyone?
@@ -360,8 +361,9 @@ class Rev {
 						);
 					return "not found";
 				}
-			})
-			.listen(config.port || 3000);
+			});
+
+		(config.elysia ? config.elysia(app) : app).listen(config.port || 3000);
 	}
 }
 

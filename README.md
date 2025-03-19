@@ -1,6 +1,6 @@
 # Rev.js
 
-A highly opionionated, lightweight, frontend only solution.
+A highly opionionated, lightweight, frontend<sup>1</sup> only solution.
 
 ## Table of Contents
 
@@ -12,6 +12,8 @@ A highly opionionated, lightweight, frontend only solution.
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
+
+<sup>1</sup> As of v0.3.0 you *can* write "backend" code by extending the `Elysia` object through the config.
 
 ## Features
 
@@ -31,7 +33,7 @@ A highly opionionated, lightweight, frontend only solution.
 
 ### Won't Do
 
-I will not specifically support non-Bun JavaScript runtimes. Bun has support for Windows, Mac, and Linux, and is faster than node/npm, yarn, or pnpm.
+I will not *specifically* support non-Bun JavaScript runtimes. Bun has support for Windows, Mac, and Linux, and is faster than node/npm, yarn, or pnpm.
 
 If you don't want Bun, you don't want this package.
 
@@ -52,7 +54,7 @@ Next, make sure you have this directory structure:
 |   _layout.html
 |   404.html
 | public/
-|   (public files such 
+|   (public files such
 |        as a favicon.ico)
 ```
 
@@ -67,7 +69,7 @@ You can also have a components directory at the root level:
 | components/
 |   SomeComponent.html
 | public/
-|   (public files such 
+|   (public files such
 |        as a favicon.ico)
 ```
 
@@ -78,12 +80,23 @@ import Rev from "@tehcn/rev.js";
 
 new Rev({
  port: 8080,
- showDebug: false, // debug info isn't too important most of the time
- rootDir: __dirname, // im working to fix this, but no promises
+
+ // debug info isn't too important most of the time
+ // but it can be useful if you did something stupid
+ showDebug: false,
+
+ // im working to fix this, but no promises
+ // for now, it needs to be an "absolute" path
+ rootDir: __dirname,
+
+ // this is 100% optional, but can be useful
+ // when you want more functionality than just
+ // what rev.js provides by default
+ elysia: (app) => app
 });
 ```
 
-In your `pages/_layout.html` file, is your (you guessed it) main layout. Any `pages/**/_page.html` will go in `Outlet` built-in component.
+In your `pages/_layout.html` file, is your (you guessed it) main layout. Any `pages/**/_page.html` will go in the `Outlet` built-in component.
 
 Here's the absolute *bare minimum* `pages/_layout.html`:
 
